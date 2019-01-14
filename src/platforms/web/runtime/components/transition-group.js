@@ -181,7 +181,8 @@ function applyTranslation (c: VNode) {
   const newPos = c.data.newPos
   const dx = oldPos.left - newPos.left
   const dy = oldPos.top - newPos.top
-  if (dx || dy) {
+  // if (dx || dy) {
+  if ((dx || dy) && (oldPos.left != 0 && oldPos.top != 0)) {
     c.data.moved = true
     const s = c.elm.style
     s.transform = s.WebkitTransform = `translate(${dx}px,${dy}px)`
