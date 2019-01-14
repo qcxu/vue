@@ -1,6 +1,6 @@
 /*!
  * Vue.js v2.5.0
- * (c) 2014-2017 Evan You
+ * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -7633,7 +7633,8 @@ function applyTranslation (c) {
   var newPos = c.data.newPos;
   var dx = oldPos.left - newPos.left;
   var dy = oldPos.top - newPos.top;
-  if (dx || dy) {
+  // if (dx || dy) {
+  if ((dx || dy) && (oldPos.left !== 0 && oldPos.top !== 0)) {
     c.data.moved = true;
     var s = c.elm.style;
     s.transform = s.WebkitTransform = "translate(" + dx + "px," + dy + "px)";
